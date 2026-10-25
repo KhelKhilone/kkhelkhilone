@@ -1,0 +1,20 @@
+KhelKhilone targeted homepage editor and category dropdown heading fix
+
+Changes in this revision:
+- Added a Delete element / Restore element control to the visual editor.
+- Deleting marks the selected element as removed from the visitor page and persists that state in the desktop or mobile layout draft/live data. The element remains selectable as a faded outline while in visual-edit mode so it can be restored.
+- Added backend validation/persistence for the deleted flag and live CSS hiding for deleted elements.
+- Removed only the dropdown group heading text “RIDE-ONS & SCOOTERS” and “COMBO PACKS”. All category links under those headings remain in place.
+- Left the Shop by Category homepage section and its images intact.
+- Kept separate desktop and mobile visual layout storage and existing content/admin/cart files.
+
+Validation performed:
+- Cloudflare Pages Function JavaScript syntax check passed.
+- Visual editor JavaScript syntax check passed.
+- Admin inline JavaScript syntax check passed.
+- ZIP archive integrity check passed after packaging.
+
+Important:
+- Deploy to the existing Cloudflare Pages project.
+- Preserve the actual KK_DATA KV namespace ID and production secrets. Do not overwrite them with a placeholder.
+- Browser/live Cloudflare testing has not been performed here. Test Delete, Save draft, Publish, refresh, and Restore in a staging or backed-up deployment before making major edits.

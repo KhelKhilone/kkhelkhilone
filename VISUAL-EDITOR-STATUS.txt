@@ -1,0 +1,27 @@
+KhelKhilone Visual Editor — fixes applied to the uploaded package
+
+Fixes in this revision:
+- Fixed the admin visual editor's element-field selectors. The previous script queried custom tag names instead of IDs, so selecting an element could throw an error before text/link/image/style controls were populated.
+- Improved the preview-side editor so a click selects the actual clicked element (button, tab, icon, text, image, column, card, or section), with stable selectors where possible.
+- Improved header/category/phone quick-select fallbacks and added a visible error message if an automatic target cannot be found.
+- Kept visual layout draft/live storage separate from regular homepage content and Shopify cart/checkout code.
+- Synced public/admin/index.html and admin/index.html.
+
+Validation performed in this revision:
+- Node syntax check passed for Cloudflare Pages Function.
+- Node syntax check passed for visual-editor.js.
+- Extracted admin inline JavaScript passed Node syntax check.
+- Verified source/admin copies match.
+- ZIP archive integrity checked after packaging.
+
+Limitations and safety:
+- A real interactive browser session and a live Cloudflare deployment were not available for this revision; browser-level behavior is not claimed as fully verified.
+- Dragging applies visual translate offsets and width/height controls alter the selected element. It does not provide a full professional responsive grid editor with arbitrary DOM restructuring.
+- Test in a separate Cloudflare Pages project with a separate KK_DATA KV namespace before replacing the live deployment. Keep khelkhilone.com and the live KV namespace untouched until tested.
+
+Responsive layout update:
+- Added separate Desktop and Mobile preview modes in admin, including a narrow phone-sized preview frame.
+- Desktop visual edits are stored in visual-layout-draft/live; mobile edits use separate visual-layout-mobile-draft/live KV keys.
+- The storefront selects the mobile layout at viewport widths of 767px or less, otherwise the desktop layout. Existing desktop layout data remains in its original KV keys.
+- Save Draft saves both layout maps independently; Publish publishes both maps independently.
+- Verified syntax for the admin inline script, visual editor script, and Pages Function; a real browser test is still required before production deployment.

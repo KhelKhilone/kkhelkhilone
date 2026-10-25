@@ -1,0 +1,49 @@
+KhelKhilone — Cloudflare Pages deployment (KV configured)
+==========================================================
+
+This ZIP is prepared for Cloudflare Pages Functions. Deploy it through Git integration (GitHub), not the Cloudflare dashboard Direct Upload option. Pages Functions need Git integration or Wrangler deployment.
+
+ALREADY CONFIGURED
+- Pages output directory: public
+- KV binding name: KK_DATA
+- KV namespace ID: 9f7a1d3c5b2e4a6f8c0d1e2b3a4c5d6e (test placeholder; create a separate KV namespace before deploying)
+- Admin password and session secret are NOT included in this ZIP.
+
+LOCAL TEST FIRST
+1. Copy .dev.vars.example to .dev.vars and set your own local ADMIN_PASSWORD and SESSION_SECRET values. Do not commit .dev.vars to GitHub.
+2. Run npm install, then npm run dev. Open http://127.0.0.1:8788/admin/ (not just /) to open the editor.
+3. After login, use Visual edit above the homepage preview. Click an element, drag it to move it, adjust width/height, hide/restore it, then Save draft. Click Publish visual changes only when you are ready for visitors to see them. Existing text/image fields and section ordering remain available. Local edits use Wrangler local KV and do not write to the live store.
+
+DEPLOY
+1. Extract this ZIP. Open the folder containing functions/, public/, and wrangler.toml.
+2. Upload the CONTENTS of that folder to the ROOT of your GitHub repository (not the outer folder).
+3. In Cloudflare Dashboard, open Workers & Pages → Create application → Pages → Connect to Git. Select that repository.
+4. Build settings: Framework preset = None; Build command = exit 0; Build output directory = public. Deploy.
+5. After creating the Pages project, go to Workers & Pages → your project → Settings → Variables and Secrets. Add the following as ENCRYPTED SECRETS in the Production environment:
+   - ADMIN_PASSWORD = a strong, unique password for the admin panel
+   - SESSION_SECRET = a long random string (at least 32 random characters; use a password manager to generate it)
+   Save, then trigger a new deployment so the Function receives the secrets.
+6. In Settings → Bindings, create/select a NEW test KV namespace and bind it as KK_DATA for this separate test project. The ID in this package is only a placeholder. Do not bind the test project to the live website’s KV namespace.
+7. Test the generated https://YOUR-PROJECT.pages.dev/ homepage and https://YOUR-PROJECT.pages.dev/admin/ admin panel. Before deploying, create a NEW test KV namespace and replace the placeholder ID in wrangler.toml with that test namespace ID. Never point a test project at your live production KV namespace. Sign in with the ADMIN_PASSWORD secret you set. Change an offer value, save, reload the homepage and confirm it persists. Test image upload too.
+
+SHOPIFY CONNECTION — ONE VALUE STILL NEEDED
+The value you provided, khelkhilone.com, appears to be your custom domain, not the permanent *.myshopify.com domain requested by the setup. The Shopify shop field is intentionally left blank so the site does not make requests to a potentially wrong domain. Find the exact permanent domain in Shopify Admin → Settings → Domains (often shown as a store-name.myshopify.com domain). Then edit public/js/config.js and set window.KK.shop to that exact domain, without https:// or a trailing slash, and commit the change. Keep only a public Storefront API token in this browser config; never put an Admin API token or any shpat_ token here. The existing Storefront token is included as in the original package; if you have any doubt it is current, rotate/reissue it in Shopify.
+
+IMPORTANT
+- Do not commit ADMIN_PASSWORD or SESSION_SECRET to GitHub or put them in public/js/config.js.
+- Do not change khelkhilone.com DNS until the pages.dev deployment and checkout have been tested.
+- KV stores admin-edited content and image data. Test save/load after deployment; KV is not a traditional file system.
+- This ZIP has been configured and its Function JavaScript syntax-checked, but it has not been deployed into your Cloudflare account. Live runtime, admin, upload, and Shopify checkout tests must still be completed after deployment.
+
+Official Cloudflare docs:
+https://developers.cloudflare.com/pages/functions/bindings/
+https://developers.cloudflare.com/pages/functions/get-started/
+
+
+ADMIN SECRET DIAGNOSTIC
+After deployment, open /api/admin/status. It only reports whether ADMIN_PASSWORD, SESSION_SECRET and the KK_DATA binding are present; it never returns their values. If a secret is missing, add it under the same Pages project and the Production environment, then redeploy.
+
+
+ABOUT US EDITING
+The /about-us page uses the About Us page fields in the admin panel: page heading, introduction, founder name, founder role, founder image, founder description, mission, and vision. Upload a new founder photo in the Founder image field and save changes.
+Blogs are hidden from the storefront navigation, footer, and homepage section.

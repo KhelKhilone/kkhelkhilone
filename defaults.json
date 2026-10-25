@@ -1,0 +1,209 @@
+{
+  "topbar.text": "Visit KhelKhilone, Akola ★ 4.7 rated by 218 Google reviewers · Shop the latest toys!",
+  "topbar.show": true,
+  "hero.badge": "Free Delivery on Order above ₹299",
+  "hero.title": "Discover the Hottest Toys for Every Age and Adventure!",
+  "hero.subtitle": "Explore our wide selection of toys, designed to inspire creativity, learning, and endless fun for kids of all ages!",
+  "hero.buttonLink": "/shop",
+  "hero.buttonText": "Explore more",
+  "hero.image": "/img/hero.webp",
+  "age.kicker": "Find the Perfect Toy for Every Stage!",
+  "age.title": "Shop by Age",
+  "feature.kicker": "Discover Our Latest Must-Have Toy Picks!",
+  "feature.title": "New Featured Products",
+  "best.kicker": "Shop the Best Toys for Every Adventure!",
+  "best.title": "Play, Learn, Explore",
+  "testi.kicker": "See What Happy Customers Are Saying About Us!",
+  "testi.title": "Joyful Customer Experience",
+  "promo.title": "50% OFF",
+  "promo.subtitle": "On Selected Indoor Toys!",
+  "contact.phone": "+91 94201 01924",
+  "contact.address": "Mahatma Gandhi Rd, opp. Mahanagar Palika, Kala Chabutra, Baid Pura, Akola, Maharashtra 444001",
+  "rating.score": "4.7",
+  "rating.count": "218",
+  "testimonials": [
+    {
+      "name": "Jessica Brown",
+      "text": "I’m so impressed with the selection and quality of toys here! My little ones were thrilled with their new playsets, and I appreciate the educational options available. The website was easy to navigate, and the delivery was fast. Excellent customer service too—I'll definitely be shopping here again soon. Highly recommended!",
+      "photo": "/img/t1.webp"
+    },
+    {
+      "name": "Jacob Jones",
+      "text": "I’m so impressed with the selection and quality of toys here! My little ones were thrilled with their new playsets, and I appreciate the educational options available. The website was easy to navigate, and the delivery was fast. Excellent customer service too—I'll definitely be shopping here again soon. Highly recommended!",
+      "photo": "/img/t2.webp"
+    },
+    {
+      "name": "Bernard",
+      "text": "I’m so impressed with the selection and quality of toys here! My little ones were thrilled with their new playsets, and I appreciate the educational options available. The website was easy to navigate, and the delivery was fast. Excellent customer service too—I'll definitely be shopping here again soon. Highly recommended!",
+      "photo": "/img/t3.webp"
+    },
+    {
+      "name": "Jacob Jones",
+      "text": "I’m so impressed with the selection and quality of toys here! My little ones were thrilled with their new playsets, and I appreciate the educational options available. The website was easy to navigate, and the delivery was fast. Excellent customer service too—I'll definitely be shopping here again soon. Highly recommended!",
+      "photo": "/img/t4.webp"
+    }
+  ],
+  "ages": [
+    {
+      "label": "0-18",
+      "unit": "Months",
+      "image": "/img/age1.png",
+      "link": "/shop"
+    },
+    {
+      "label": "18-36",
+      "unit": "Months",
+      "image": "/img/age2.png",
+      "link": "/shop"
+    },
+    {
+      "label": "3-5",
+      "unit": "Years",
+      "image": "/img/age3.png",
+      "link": "/shop"
+    },
+    {
+      "label": "5-7",
+      "unit": "Years",
+      "image": "/img/age4.png",
+      "link": "/shop"
+    },
+    {
+      "label": "7-9",
+      "unit": "Years",
+      "image": "/img/age5.png",
+      "link": "/shop"
+    },
+    {
+      "label": "9-12",
+      "unit": "Years",
+      "image": "/img/age6.png",
+      "link": "/shop"
+    }
+  ],
+  "cat.kicker": "Find the Perfect Toy for Every Stage!",
+  "cat.title": "Shop by Category",
+  "cats": [
+    {
+      "label": "Puzzles & Toys",
+      "image": "/img/cat1.png",
+      "link": "/shop"
+    },
+    {
+      "label": "Sports & Outdoor",
+      "image": "/img/cat2.png",
+      "link": "/shop"
+    },
+    {
+      "label": "Rideons & Cycle",
+      "image": "/img/cat3.png",
+      "link": "/shop"
+    },
+    {
+      "label": "School & Travel",
+      "image": "/img/cat4.png",
+      "link": "/shop"
+    },
+    {
+      "label": "Baby Gear & Utility",
+      "image": "/img/cat5.png",
+      "link": "/shop"
+    },
+    {
+      "label": "Gadgets",
+      "image": "/img/cat6.png",
+      "link": "/shop"
+    }
+  ],
+  "promo.image": "/img/promo1.png",
+  "promo2.image": "/img/promo2.png",
+  "promo2.title": "50% OFF",
+  "promo2.subtitle": "On Selected Indoor Toys!",
+  "offer.image": "/img/offer-bg.png",
+  "offer.text": "Limited Time Offer: Get Up to 40% Off on Best-Selling Toys! Shop Now and Save!",
+  "offerbox.image": "/img/offerbox-bg.png",
+  "offerbox.text": "Explore the Offers Here!",
+  "blog.kicker": "Explore Playful Ideas, Expert Tips, and Toy Trends!",
+  "blog.title": "Toy Trends Insights",
+  "blogs": [
+    {
+      "image": "/img/blog1.png",
+      "title": "Why Board Games are Perfect for Family Bonding",
+      "text": "Discover the best educational toys that promote cognitive...",
+      "date": "February 21,2025",
+      "author": "admin01",
+      "link": "#"
+    },
+    {
+      "image": "/img/blog2.png",
+      "title": "The Benefits of Outdoor Play: Top Toys for Active Kids",
+      "text": "Discover the best educational toys that promote cognitive...",
+      "date": "February 21,2025",
+      "author": "admin01",
+      "link": "#"
+    },
+    {
+      "image": "/img/blog3.png",
+      "title": "How to Choose the Perfect Birthday Gift for Kids",
+      "text": "Discover the best educational toys that promote cognitive...",
+      "date": "February 21,2025",
+      "author": "admin01",
+      "link": "#"
+    }
+  ],
+  "about.title": "About KhelKhilone",
+  "about.intro": "At KhelKhilone, we believe every child deserves toys that spark imagination, encourage learning, and create happy memories. Based in Akola, Maharashtra, we bring families a carefully selected range of toys for every age and adventure.",
+  "about.founderName": "KhelKhilone Founder",
+  "about.founderRole": "Founder & Team",
+  "about.founderImage": "/img/blog-author.jpg",
+  "about.founderDescription": "Our journey began with a simple idea: make choosing toys joyful, easy, and trustworthy for every family. We focus on playful discovery, helpful service, and products that inspire children to learn through play.",
+  "about.mission": "To help children learn, imagine, and grow through joyful play while making toy shopping simple and dependable for parents.",
+  "about.vision": "To be a trusted destination for families seeking thoughtful toys, friendly service, and a little more happiness in every day.",
+  "offer.discount1": "60",
+  "offer.link1": "/shop?discount=60",
+  "offer.discount2": "50",
+  "offer.link2": "/shop?discount=50",
+  "offer.discount3": "40",
+  "offer.link3": "/shop?discount=40",
+  "home.order": [
+    "banner",
+    "shop-by-age",
+    "shop-by-category",
+    "feature-products",
+    "brands",
+    "shop-best-toys",
+    "discount-banner",
+    "blog",
+    "testimonial"
+  ],
+  "navGroups": [
+    {
+      "title": "SHOP BY CATEGORY",
+      "links": "Musical Toys | /shop.html?category=Musical%20Toys\nLearning & Educational Toys | /shop.html?category=Learning%20%26%20Educational%20Toys\nSoft Toys | /shop.html?category=Soft%20Toys\nIndoor & Outdoor Play | /shop.html?category=Indoor%20%26%20Outdoor%20Play\nPlay Gyms & Playmats | /shop.html?category=Play%20Gyms%20%26%20Playmats\nSports & Games | /shop.html?category=Sports%20%26%20Games\nRole & Pretend Play Toys | /shop.html?category=Role%20%26%20Pretend%20Play%20Toys\nBlocks & Construction Sets | /shop.html?category=Blocks%20%26%20Construction%20Sets\nStacking Toys | /shop.html?category=Stacking%20Toys\nKids Puzzles | /shop.html?category=Kids%20Puzzles\nBaby Rattles | /shop.html?category=Baby%20Rattles\nToys Cars Trains & Vehicles | /shop.html?category=Toys%20Cars%20Trains%20%26%20Vehicles\nKids Musical Instruments | /shop.html?category=Kids%20Musical%20Instruments\nDolls & Dollhouses | /shop.html?category=Dolls%20%26%20Dollhouses\nPush & Pull Along Toys | /shop.html?category=Push%20%26%20Pull%20Along%20Toys\nArt Crafts & Hobby Kits | /shop.html?category=Art%20Crafts%20%26%20Hobby%20Kits\nBoard Games | /shop.html?category=Board%20Games\nNovelty Toys NEW | /shop.html?category=Novelty%20Toys%20NEW\nMagnetic Toys NEW | /shop.html?category=Magnetic%20Toys%20NEW\nAction Figures & Collectibles | /shop.html?category=Action%20Figures%20%26%20Collectibles\nRadio & Remote Control Toys | /shop.html?category=Radio%20%26%20Remote%20Control%20Toys\nBath Toys | /shop.html?category=Bath%20Toys\nToys Guns & Weapons | /shop.html?category=Toys%20Guns%20%26%20Weapons\nPC Games & Gaming Consoles | /shop.html?category=PC%20Games%20%26%20Gaming%20Consoles\nKids Gadgets NEW | /shop.html?category=Kids%20Gadgets%20NEW"
+    },
+    {
+      "title": "RIDE-ONS & SCOOTERS",
+      "links": "Battery Operated Ride-ons | /shop.html?category=Battery%20Operated%20Ride-ons\nManual Push Ride-ons | /shop.html?category=Manual%20Push%20Ride-ons\nSwing cars/twisters | /shop.html?category=Swing%20cars%2Ftwisters\nScooters | /shop.html?category=Scooters\nRocking Ride Ons | /shop.html?category=Rocking%20Ride%20Ons\nTricycles | /shop.html?category=Tricycles\nBicycles | /shop.html?category=Bicycles\nBalance Bike | /shop.html?category=Balance%20Bike"
+    },
+    {
+      "title": "COMBO PACKS",
+      "links": "Combo Packs | /shop.html?category=Combo%20Packs"
+    },
+    {
+      "title": "BOARD GAMES",
+      "links": "IQ Games | /shop.html?category=IQ%20Games\nLudo, Snakes & Ladders | /shop.html?category=Ludo%2C%20Snakes%20%26%20Ladders\nWords, Pictures & Scrabble Games | /shop.html?category=Words%2C%20Pictures%20%26%20Scrabble%20Games\nPlaying Cards | /shop.html?category=Playing%20Cards\nLife & Travel Board Games | /shop.html?category=Life%20%26%20Travel%20Board%20Games\nAnimal, Birds & Marine Life Games | /shop.html?category=Animal%2C%20Birds%20%26%20Marine%20Life%20Games\nBusiness/Monopoly | /shop.html?category=Business%2FMonopoly"
+    },
+    {
+      "title": "HOME PLAY ACTIVITIES",
+      "links": "Play Dough, Sand & Moulds | /shop.html?category=Play%20Dough%2C%20Sand%20%26%20Moulds\nColoring, Sequencing & Engraving Art | /shop.html?category=Coloring%2C%20Sequencing%20%26%20Engraving%20Art\nActivity Kit | /shop.html?category=Activity%20Kit\nBuilding Construction Sets | /shop.html?category=Building%20Construction%20Sets\nMulti Model Making Sets | /shop.html?category=Multi%20Model%20Making%20Sets\nKitchen Sets | /shop.html?category=Kitchen%20Sets\nPlay Foods | /shop.html?category=Play%20Foods\nKids' Doctor Sets | /shop.html?category=Kids%27%20Doctor%20Sets\nPiano & Keyboards | /shop.html?category=Piano%20%26%20Keyboards\nDrum Sets & Percussion | /shop.html?category=Drum%20Sets%20%26%20Percussion"
+    },
+    {
+      "title": "SHOP BY BRANDS",
+      "links": "Babyhug | /shop.html?vendor=Babyhug\nIntelliskills | /shop.html?vendor=Intelliskills\nIntellibaby | /shop.html?vendor=Intellibaby\nFab n Funky | /shop.html?vendor=Fab%20n%20Funky\nHotwheels | /shop.html?vendor=Hotwheels\nDisney | /shop.html?vendor=Disney\nBarbie | /shop.html?vendor=Barbie\nGiggles | /shop.html?vendor=Giggles\nLego | /shop.html?vendor=Lego\nBonfino | /shop.html?vendor=Bonfino\nPine Kids | /shop.html?vendor=Pine%20Kids\nPlaynation | /shop.html?vendor=Playnation\nDoodle Poodle | /shop.html?vendor=Doodle%20Poodle"
+    },
+    {
+      "title": "SHOP BY PRICE",
+      "links": "Under 299 | /shop.html?max=299\nUnder 499 | /shop.html?max=499\nUnder 699 | /shop.html?max=699\nUnder 999 | /shop.html?max=999\nFavourite Toys | /shop.html?sort=favourite"
+    }
+  ]
+}
