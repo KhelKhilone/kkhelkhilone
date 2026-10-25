@@ -1,0 +1,10 @@
+KhelKhilone floating WhatsApp support button
+
+The green WhatsApp button appears at the bottom-left of storefront HTML pages after a support number is configured.
+
+Admin content field:
+  contact.whatsapp
+
+Enter the number in international format using digits only. For an Indian number, include 91 followed by the 10-digit mobile number. Example format: 919876543210 (example only; replace with your real support number).
+
+The default is the store phone number currently shown in the site footer (919420101924). Please verify this is the correct WhatsApp support number. You can replace it in the admin content setting `contact.whatsapp`; the admin content API schema now includes this field. After saving, purge the Cloudflare cache. If the setting is cleared or invalid, the button is hidden.

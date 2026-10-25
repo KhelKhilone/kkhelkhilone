@@ -1,0 +1,13 @@
+KhelKhilone mobile footer/link repair
+
+Changes in this package:
+- Repairs legacy homepage/footer links that have an empty or '#' destination when their visible label identifies About Us, FAQ, Contact, Shipping & Returns, Returns & Exchanges, Order Tracking, Shipping Information, Payment Methods, Privacy Policy, or Terms & Conditions.
+- Improves mobile footer tap targets and prevents footer links from being covered by nearby layout layers.
+- Mobile-only CSS changes are scoped to viewport widths <= 767px; desktop layout styles are not changed.
+
+Deployment:
+1. Keep a backup of the currently deployed project.
+2. Upload/deploy the complete contents of this ZIP to the same Cloudflare Pages project (not just the public folder).
+3. Purge Cloudflare cache after deployment and test /about-us and /faq directly as well as via footer taps.
+
+Validation: JavaScript syntax checks and ZIP integrity check are performed. A real Android browser session and live deployment are not available here, so test on the deployed site before treating this as production-verified.

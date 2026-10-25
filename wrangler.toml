@@ -1,0 +1,8 @@
+name = "khelkhilone-storefront"
+compatibility_date = "2026-10-10"
+pages_build_output_dir = "./public"
+
+# After creating a KV namespace in Cloudflare, add its ID below.
+[[kv_namespaces]]
+binding = "KK_DATA"
+id = "20c924b78c0f423380a4f3e823923e64"

@@ -18,3 +18,13 @@ Important:
 - Deploy to the existing Cloudflare Pages project.
 - Preserve the actual KK_DATA KV namespace ID and production secrets. Do not overwrite them with a placeholder.
 - Browser/live Cloudflare testing has not been performed here. Test Delete, Save draft, Publish, refresh, and Restore in a staging or backed-up deployment before making major edits.
+
+---
+Revision: Shop by Category homepage section removed
+- Removed the whole "Shop by Category" section (heading, category tiles, wavy top/bottom SVGs) from the homepage in views/index.template.html and the embedded TEMPLATE in functions/[[path]].js.
+- Removed it from the default homepage section order. A stale saved order in KK_DATA is safely ignored.
+- Header category dropdown, Shop by Age, shop pages, cart/checkout and admin were not changed.
+- Keep your real KK_DATA namespace ID in wrangler.toml / Cloudflare settings.
+
+Revision: Discount banner section removed
+- Removed the homepage discount section (two "50% OFF" promo cards and the "Limited Time Offer" banner) from views/index.template.html and the embedded TEMPLATE in functions/[[path]].js, and from the default section order.

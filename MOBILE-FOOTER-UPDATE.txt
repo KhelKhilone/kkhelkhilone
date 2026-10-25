@@ -1,0 +1,13 @@
+KhelKhilone mobile footer update
+
+Changes:
+- Rebuilt the mobile footer into a compact two-column link layout, with contact details and newsletter/payment area spanning the full width.
+- Fixed mobile newsletter input/button overflow and payment-logo spacing.
+- Preserved desktop styling by applying the new footer design only at viewport widths up to 767px.
+- Removed the injected visual-editor script and removed the visual-editor admin interface files/route.
+- Kept existing page links and route handling for About Us, FAQ, Contact Us, Shipping & Returns, Order Tracking, Shipping Information, Returns & Exchanges, Payment Methods, Terms & Conditions, and Privacy Policy.
+
+Deployment:
+Upload/deploy the complete project contents to the existing Cloudflare Pages project, preserving the existing KK_DATA KV binding. Purge Cloudflare cache after deploy. Do not create a new KV namespace unless you also migrate its data.
+
+Validation: JavaScript syntax and ZIP integrity checked. Real-device browser testing against the live domain was not available; test all footer links and newsletter behavior after deployment. The newsletter form depends on the site's existing form backend and may not submit if that WordPress form endpoint is not active.

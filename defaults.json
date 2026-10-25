@@ -168,11 +168,9 @@
   "home.order": [
     "banner",
     "shop-by-age",
-    "shop-by-category",
     "feature-products",
     "brands",
     "shop-best-toys",
-    "discount-banner",
     "blog",
     "testimonial"
   ],

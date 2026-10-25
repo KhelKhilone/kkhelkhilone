@@ -1,0 +1,2 @@
+ADMIN_PASSWORD=replace-with-your-own-local-test-password
+SESSION_SECRET=replace-with-a-random-secret-at-least-32-characters-long
