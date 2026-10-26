@@ -18512,24 +18512,31 @@ body { min-height:100vh !important; }
       @media(max-width:380px){#shop-by-age .kk-age-card{flex-basis:140px}#shop-by-age .kk-age-track{gap:12px}}
     </style>
     <section id="shop-by-age" class="kk-age-section">
-      <div class="kk-age-container">
-        <div class="kk-age-heading"><h2>Shop by Age</h2></div>
-        <div class="kk-age-slider">
-          <button class="kk-age-arrow prev" type="button" aria-label="Scroll age groups left" onclick="document.getElementById('kk-age-track').scrollBy({left:-300,behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="kk-age-track" id="kk-age-track">
-            <a class="kk-age-card" href="/shop.html?age=0-18-months" aria-label="Shop toys for 0 to 18 months"><img src="/img/age1.png" alt="0–18 months" loading="lazy" decoding="async"/></a>
-            <a class="kk-age-card" href="/shop.html?age=18-36-months" aria-label="Shop toys for 18 to 36 months"><img src="/img/age2.png" alt="18–36 months" loading="lazy" decoding="async"/></a>
-            <a class="kk-age-card" href="/shop.html?age=3-5-years" aria-label="Shop toys for 3 to 5 years"><img src="/img/age3.png" alt="3–5 years" loading="lazy" decoding="async"/></a>
-            <a class="kk-age-card" href="/shop.html?age=7-9-years" aria-label="Shop toys for 7 to 9 years"><img src="/img/age4.png" alt="7–9 years" loading="lazy" decoding="async"/></a>
-            <a class="kk-age-card" href="/shop.html?age=9-12-years" aria-label="Shop toys for 9 to 12 years"><img src="/img/age5.png" alt="9–12 years" loading="lazy" decoding="async"/></a>
-            <a class="kk-age-card" href="/shop.html?age=12-plus-years" aria-label="Shop toys for 12 years and above"><img src="/img/age6.png" alt="12+ years" loading="lazy" decoding="async"/></a>
-          </div>
-          <button class="kk-age-arrow next" type="button" aria-label="Scroll age groups right" onclick="document.getElementById('kk-age-track').scrollBy({left:300,behavior:'smooth'})">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
+      <style>
+        #shop-by-age .kk-browse-age{max-width:1320px;margin:0 auto;padding:0 20px;text-align:center}
+        #shop-by-age .kk-browse-age h2{margin:0 0 18px;font-family:Quicksand,system-ui,sans-serif;font-size:28px;line-height:1.2;font-weight:700;color:#3c4a5a;letter-spacing:.3px}
+        #shop-by-age .kk-browse-age h2 span{margin:0 8px;color:#3c4a5a}
+        #shop-by-age .kk-age-select{display:block;width:100%;max-width:290px;height:60px;margin:0 auto;padding:0 38px 0 14px;border:2px solid #001031;border-radius:4px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23001031' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;color:#3c4a5a;font:500 16px Quicksand,system-ui,sans-serif;cursor:pointer;-webkit-appearance:none;appearance:none}
+        #shop-by-age .kk-age-select:focus{outline:3px solid rgba(0,16,49,.18);outline-offset:2px}
+        @media(max-width:767px){#shop-by-age .kk-browse-age h2{font-size:23px}#shop-by-age .kk-age-select{height:54px;font-size:16px}}
+      </style>
+      <div class="kk-browse-age">
+        <h2><span>~</span>Browse by Age<span>~</span></h2>
+        <label class="sr-only" for="kk-age-select" style="position:absolute;left:-9999px">Select age range</label>
+        <select id="kk-age-select" class="kk-age-select" onchange="if(this.value){window.location.href=this.value}">
+          <option value="">Please select age range</option>
+          <option value="/shop.html?age=0-3-months">0 - 3 Months</option>
+          <option value="/shop.html?age=3-6-months">3 - 6 Months</option>
+          <option value="/shop.html?age=6-9-months">6 - 9 Months</option>
+          <option value="/shop.html?age=9-12-months">9 - 12 Months</option>
+          <option value="/shop.html?age=1-2-years">1 - 2 Years</option>
+          <option value="/shop.html?age=2-4-years">2 - 4 Years</option>
+          <option value="/shop.html?age=4-6-years">4 - 6 Years</option>
+          <option value="/shop.html?age=6-8-years">6 - 8 Years</option>
+          <option value="/shop.html?age=8-10-years">8 - 10 Years</option>
+          <option value="/shop.html?age=10-12-years">10 - 12 Years</option>
+          <option value="/shop.html?age=12-years">12 Years &amp; Over</option>
+        </select>
       </div>
     </section>
     <section id="shop-by-category" style="background-size: 100% 100%; background-position: bottom; " class="wow zoomIn delay-3000 animated " data-wow-duration="2s">
