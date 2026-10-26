@@ -161,7 +161,7 @@
     var g = $("#kk-grid"), qs = new URLSearchParams(location.search), q = qs.get("q") || "", category = (qs.get("category") || qs.get("type") || "").trim(), age = (qs.get("age") || "").trim(), vendor = (qs.get("vendor") || "").toLowerCase(), maxPrice = parseFloat(qs.get("max") || "0") || 0, favourite = qs.get("sort") === "favourite", minDiscount = Math.max(0, Math.min(100, parseInt(qs.get("discount") || "0", 10) || 0)), all = [];
     $("#kk-q").value = q; g.innerHTML = '<p class="kk-msg">Loading toys&hellip;</p>';
     var requestedType = qs.get("type") || "";
-    var ageLabels = {"0-18-months":"0–18 Months","18-36-months":"18–36 Months","3-5-years":"3–5 Years","7-9-years":"7–9 Years","9-12-years":"9–12 Years","12-plus-years":"12+ Years"};
+    var ageLabels = {"0-3-months":"0–3 Months","3-6-months":"3–6 Months","6-9-months":"6–9 Months","9-12-months":"9–12 Months","1-2-years":"1–2 Years","2-4-years":"2–4 Years","4-6-years":"4–6 Years","6-8-years":"6–8 Years","8-10-years":"8–10 Years","10-12-years":"10–12 Years","12-years":"12 Years & Over","0-18-months":"0–18 Months","18-36-months":"18–36 Months","3-5-years":"3–5 Years","7-9-years":"7–9 Years","9-12-years":"9–12 Years","12-plus-years":"12+ Years"};
     var categoryLabel = qs.get("category") || requestedType || (age ? "Toys for " + (ageLabels[age] || age.replace(/-/g, " ")) : "") || (vendor ? qs.get("vendor") : "") || (maxPrice ? "Under ₹" + maxPrice : "") || (favourite ? "Favourite Toys" : "");
     if (!categoryLabel && minDiscount) categoryLabel = minDiscount + "% OFF Toys";
     if (!categoryLabel && q) categoryLabel = 'Search results for “' + q + '”';
@@ -182,7 +182,7 @@
     }
     function ageMatches(p, ageKey) {
       var hay = [p.title, p.type, p.handle, (p.tags || []).join(" "), (p.collections || []).map(function(c){return c.title || c.handle || "";}).join(" ")].join(" ").toLowerCase().replace(/[^a-z0-9]+/g," ");
-      var ranges = {"0-18-months":["0 18 months","0 18 month","newborn","baby"],"18-36-months":["18 36 months","18 36 month","toddler"],"3-5-years":["3 5 years","3 5 year","preschool"],"7-9-years":["7 9 years","7 9 year"],"9-12-years":["9 12 years","9 12 year"],"12-plus-years":["12 plus years","12 years","teen"]};
+      var ranges = {"0-3-months":["0 3 months","0 3 month","newborn"],"3-6-months":["3 6 months","3 6 month"],"6-9-months":["6 9 months","6 9 month"],"9-12-months":["9 12 months","9 12 month"],"1-2-years":["1 2 years","1 2 year","toddler"],"2-4-years":["2 4 years","2 4 year","toddler","preschool"],"4-6-years":["4 6 years","4 6 year","preschool"],"6-8-years":["6 8 years","6 8 year"],"8-10-years":["8 10 years","8 10 year"],"10-12-years":["10 12 years","10 12 year"],"12-years":["12 years","12 plus years","teen"],"0-18-months":["0 18 months","0 18 month","newborn","baby"],"18-36-months":["18 36 months","18 36 month","toddler"],"3-5-years":["3 5 years","3 5 year","preschool"],"7-9-years":["7 9 years","7 9 year"],"9-12-years":["9 12 years","9 12 year"],"12-plus-years":["12 plus years","12 years","teen"]};
       return (ranges[ageKey] || [ageKey.replace(/-/g," ")]).some(function(term){return hay.indexOf(term) !== -1;});
     }
     function draw() {
