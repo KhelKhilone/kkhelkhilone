@@ -18322,9 +18322,136 @@ body { min-height:100vh !important; }
             </div>
             <div class="col-lg-6 col-md-6">
               <div class="banner-right-images">
-                <div class="banner-right-image">
-                  <img class="" src="{{hero.image}}" alt="" />
+                <div class="banner-right-image kk-hero-slider" id="kkHeroSlider" aria-roledescription="carousel" aria-label="KhelKhilone offers">
+                  <div class="kk-slide is-active" data-slide="0" aria-roledescription="slide" aria-label="1 of 2">
+                    <img class="" src="{{hero.image}}" alt="" />
+                  </div>
+                  <div class="kk-slide" data-slide="1" aria-roledescription="slide" aria-label="2 of 2" aria-hidden="true">
+                    <div class="kk-ad-wrap">
+                      <img class="kk-ad-img" src="/img/hero-wa-ad.webp" width="1000" height="1000" decoding="async" alt="Need an instant product from a link you have? Click the button and send us the link on WhatsApp. We will deliver it to you at the best price." />
+                      <a class="kk-ad-btn" id="kkHeroWa" href="https://wa.me/919420101924?text=Hi%20KhelKhilone!%20%F0%9F%91%8B%0AI%20found%20a%20product%20online%20and%20I%27d%20like%20you%20to%20deliver%20it%20to%20me%20at%20the%20best%20price.%0A%0AProduct%20link%3A%20" target="_blank" rel="noopener" tabindex="-1" aria-label="Send us the product link on WhatsApp"></a>
+                    </div>
+                  </div>
+                  <div class="kk-hero-dots" role="tablist" aria-label="Choose slide">
+                    <button type="button" class="is-active" data-go="0" role="tab" aria-selected="true" aria-label="Show slide 1"></button>
+                    <button type="button" data-go="1" role="tab" aria-selected="false" aria-label="Show slide 2"></button>
+                  </div>
                 </div>
+                <style id="kk-hero-slider-css">
+                  /* Hero slider: store photo first, then the WhatsApp "send us the link" offer. */
+                  .banner-right-image.kk-hero-slider{position:relative;display:grid;width:493px;max-width:100%}
+                  .kk-hero-slider .kk-slide{grid-area:1/1;display:flex;align-items:center;justify-content:center;min-width:0;opacity:0;visibility:hidden;transform:translateX(7%);
+                    transition:opacity .8s ease,transform .8s ease,visibility 0s linear .8s}
+                  .kk-hero-slider .kk-slide.is-prev{transform:translateX(-7%)}
+                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+                  .kk-hero-slider .kk-slide>img{width:100%!important;max-width:100%}
+                  .kk-hero-slider .kk-ad-wrap{position:relative;width:100%;line-height:0}
+                  .kk-hero-slider .kk-ad-img{display:block;width:100%!important;height:auto!important;border-radius:24px;animation:none!important;
+                    box-shadow:0 10px 30px rgba(0,16,49,.14)}
+                  /* clickable area sits exactly over the red "Just Click on the Button" bar of the ad */
+                  .kk-hero-slider .kk-ad-btn{position:absolute;left:39%;top:36.4%;width:55%;height:12%;border-radius:999px;display:block;cursor:pointer;
+                    -webkit-tap-highlight-color:transparent;transition:box-shadow .2s ease,background-color .2s ease}
+                  .kk-hero-slider .kk-ad-btn:hover,.kk-hero-slider .kk-ad-btn:focus-visible{background:rgba(255,255,255,.14);
+                    box-shadow:0 0 0 3px rgba(255,255,255,.85),0 8px 20px rgba(229,0,0,.4);outline:none}
+                  .kk-hero-slider .kk-hero-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:8px;z-index:3;
+                    padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+                  .kk-hero-slider .kk-hero-dots button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:#b8c0cc;cursor:pointer;
+                    transition:background-color .25s ease,transform .25s ease}
+                  .kk-hero-slider .kk-hero-dots button.is-active{background:#FF8800;transform:scale(1.25)}
+                  .kk-hero-slider .kk-hero-dots button:focus-visible{outline:2px solid #001031;outline-offset:2px}
+                  @media (max-width:767px){
+                    .banner-right-image.kk-hero-slider{width:100%}
+                    .kk-hero-slider .kk-hero-dots{bottom:8px;padding:6px 10px}
+                    .kk-hero-slider .kk-hero-dots button{width:11px;height:11px}
+                  }
+                  @media (prefers-reduced-motion:reduce){
+                    .kk-hero-slider .kk-slide,.kk-hero-slider .kk-slide.is-prev{transform:none;transition:opacity .4s ease,visibility 0s linear .4s}
+                    .kk-hero-slider .kk-slide.is-active{transition-delay:0s}
+                  }
+                </style>
+                <script id="kk-hero-slider-js">
+                (function () {
+                  var root = document.getElementById("kkHeroSlider");
+                  if (!root || root.__kkInit) return;
+                  root.__kkInit = true;
+
+                  var slides = [].slice.call(root.querySelectorAll(".kk-slide"));
+                  var dots = [].slice.call(root.querySelectorAll(".kk-hero-dots button"));
+                  var link = document.getElementById("kkHeroWa");
+                  var DELAY = 5000;               /* 5 seconds per slide */
+                  var MESSAGE = "Hi KhelKhilone! \uD83D\uDC4B\nI found a product online and I'd like you to deliver it to me at the best price.\n\nProduct link: ";
+                  var idx = 0, timer = null, paused = false;
+
+                  function show(n) {
+                    n = (n + slides.length) % slides.length;
+                    if (n === idx) return;
+                    slides.forEach(function (s, i) {
+                      s.classList.remove("is-prev");
+                      if (i === idx) s.classList.add("is-prev");
+                    });
+                    slides[idx].classList.remove("is-active");
+                    slides[n].classList.add("is-active");
+                    slides.forEach(function (s, i) {
+                      var on = i === n;
+                      s.setAttribute("aria-hidden", on ? "false" : "true");
+                      if (dots[i]) {
+                        dots[i].classList.toggle("is-active", on);
+                        dots[i].setAttribute("aria-selected", on ? "true" : "false");
+                      }
+                    });
+                    if (link) link.tabIndex = n === 1 ? 0 : -1;
+                    idx = n;
+                  }
+                  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+                  function start() {
+                    stop();
+                    if (paused || document.hidden || slides.length < 2) return;
+                    timer = setInterval(function () { show(idx + 1); }, DELAY);
+                  }
+
+                  dots.forEach(function (d) {
+                    d.addEventListener("click", function () {
+                      show(parseInt(d.getAttribute("data-go"), 10) || 0);
+                      start();
+                    });
+                  });
+
+                  /* pause while the visitor is pointing at / focusing the slider so the button never moves under the cursor */
+                  root.addEventListener("mouseenter", function () { paused = true; stop(); });
+                  root.addEventListener("mouseleave", function () { paused = false; start(); });
+                  root.addEventListener("focusin", function () { paused = true; stop(); });
+                  root.addEventListener("focusout", function () { paused = false; start(); });
+                  document.addEventListener("visibilitychange", start);
+
+                  /* swipe left / right on phones */
+                  var sx = 0, sy = 0;
+                  root.addEventListener("touchstart", function (e) {
+                    var t = e.touches[0]; sx = t.clientX; sy = t.clientY;
+                  }, { passive: true });
+                  root.addEventListener("touchend", function (e) {
+                    var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+                    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) { show(idx + (dx < 0 ? 1 : -1)); start(); }
+                  }, { passive: true });
+
+                  /* WhatsApp number: use the one saved in admin (contact.whatsapp), same as the floating chat button */
+                  function digits(v) { var d = String(v || "").replace(/[^\d]/g, ""); return d.length >= 8 ? d : ""; }
+                  function setLink(num) {
+                    if (link) link.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(MESSAGE);
+                  }
+                  try {
+                    fetch("/api/content", { credentials: "same-origin", cache: "no-store" })
+                      .then(function (r) { return r.ok ? r.json() : null; })
+                      .then(function (c) {
+                        var n = c && (digits(c["whatsapp.number"]) || digits(c["contact.whatsapp"]));
+                        if (n) setLink(n);
+                      })
+                      .catch(function () {});
+                  } catch (e) {}
+
+                  if (document.readyState === "complete") start();
+                  else window.addEventListener("load", start);
+                })();
+                </script>
                 <div class="banner-main-cirlc-image1">
                   <svg width="245" height="180" viewBox="0 0 245 180" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M235.712 135.275C206.512 191.275 112.879 185.775 77.7125 163.775C34.2125 136.562 3.21246 84.1752 21.2125 43.7752C43.7125 -6.7248 112.212 -2.7248 148.712 3.7752C185.212 10.2752 272.212 65.2752 235.712 135.275Z" fill="#FF0047">
