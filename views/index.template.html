@@ -18338,15 +18338,17 @@ body { min-height:100vh !important; }
                   </div>
                 </div>
                 <style id="kk-hero-slider-css">
-                  /* Hero slider: store photo first, then the WhatsApp "send us the link" offer. */
-                  .banner-right-image.kk-hero-slider{position:relative;display:grid;width:493px;max-width:100%}
-                  .kk-hero-slider .kk-slide{grid-area:1/1;display:flex;align-items:center;justify-content:center;min-width:0;opacity:0;visibility:hidden;transform:translateX(7%);
-                    transition:opacity .8s ease,transform .8s ease,visibility 0s linear .8s}
-                  .kk-hero-slider .kk-slide.is-prev{transform:translateX(-7%)}
-                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
-                  .kk-hero-slider .kk-slide>img{width:100%!important;max-width:100%}
-                  .kk-hero-slider .kk-ad-wrap{position:relative;width:100%;line-height:0}
-                  .kk-hero-slider .kk-ad-img{display:block;width:100%!important;height:auto!important;border-radius:24px;animation:none!important;
+                  /* Hero slider: store photo first, then the WhatsApp "send us the link" offer.
+                     The box has exactly the same shape as the original store image, so the page layout does not change. */
+                  .banner-right-image.kk-hero-slider{position:relative;display:block;width:493px;max-width:100%;aspect-ratio:1000/1162}
+                  @supports not (aspect-ratio:1/1){.banner-right-image.kk-hero-slider{height:0;padding-bottom:116.2%}}
+                  .kk-hero-slider .kk-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transform:translateX(5%);z-index:1}
+                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;transform:none;z-index:2;transition:opacity .6s ease,transform .6s ease}
+                  /* old slide stays underneath and fades out a little later, so there is never an empty moment */
+                  .kk-hero-slider .kk-slide.is-prev{opacity:0;visibility:hidden;transform:none;transition:opacity .6s ease .35s,visibility 0s linear 1s}
+                  .kk-hero-slider .kk-slide>img{display:block;width:100%!important;height:100%!important;max-width:100%;object-fit:cover}
+                  .kk-hero-slider .kk-ad-wrap{position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;line-height:0}
+                  .kk-hero-slider .kk-ad-img{display:block;width:100%!important;height:auto!important;max-width:100%;border-radius:24px;animation:none!important;
                     box-shadow:0 10px 30px rgba(0,16,49,.14)}
                   /* clickable area sits exactly over the red "Just Click on the Button" bar of the ad */
                   .kk-hero-slider .kk-ad-btn{position:absolute;left:39%;top:36.4%;width:55%;height:12%;border-radius:999px;display:block;cursor:pointer;
@@ -18365,8 +18367,7 @@ body { min-height:100vh !important; }
                     .kk-hero-slider .kk-hero-dots button{width:11px;height:11px}
                   }
                   @media (prefers-reduced-motion:reduce){
-                    .kk-hero-slider .kk-slide,.kk-hero-slider .kk-slide.is-prev{transform:none;transition:opacity .4s ease,visibility 0s linear .4s}
-                    .kk-hero-slider .kk-slide.is-active{transition-delay:0s}
+                    .kk-hero-slider .kk-slide{transform:none}
                   }
                 </style>
                 <script id="kk-hero-slider-js">
@@ -18381,6 +18382,9 @@ body { min-height:100vh !important; }
                   var DELAY = 5000;               /* 5 seconds per slide */
                   var MESSAGE = "Hi KhelKhilone! \uD83D\uDC4B\nI found a product online and I'd like you to deliver it to me at the best price.\n\nProduct link: ";
                   var idx = 0, timer = null, paused = false;
+                  /* load + decode the offer image up front so it is ready the moment the slide changes */
+                  var pre = new Image(); pre.src = "/img/hero-wa-ad.webp";
+                  if (pre.decode) pre.decode().catch(function () {});
 
                   function show(n) {
                     n = (n + slides.length) % slides.length;
