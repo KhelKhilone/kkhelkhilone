@@ -18342,10 +18342,12 @@ body { min-height:100vh !important; }
                      The box has exactly the same shape as the original store image, so the page layout does not change. */
                   .banner-right-image.kk-hero-slider{position:relative;display:block;width:493px;max-width:100%;aspect-ratio:1000/1162}
                   @supports not (aspect-ratio:1/1){.banner-right-image.kk-hero-slider{height:0;padding-bottom:116.2%}}
-                  .kk-hero-slider .kk-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;z-index:1}
+                  .kk-hero-slider .kk-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;pointer-events:none;z-index:1}
                   /* new slide fades in on top of the old one (which stays fully visible underneath) - never an empty moment */
-                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;z-index:2;transition:opacity .4s ease}
-                  .kk-hero-slider .kk-slide.is-prev{opacity:1;visibility:visible;z-index:1}
+                  .kk-hero-slider .kk-slide.is-active{opacity:1;pointer-events:auto;z-index:2;transition:opacity .4s ease}
+                  .kk-hero-slider .kk-slide.is-prev{opacity:1;z-index:1}
+                  /* the site gives every hero image a 3s transition-delay; that made the offer image appear 3s late, so switch it off inside the slider */
+                  .kk-hero-slider img,.banner-right-image.kk-hero-slider img{transition:none!important;transition-delay:0s!important}
                   .kk-hero-slider .kk-slide>img{display:block;width:100%!important;height:100%!important;max-width:100%;object-fit:cover}
                   .kk-hero-slider .kk-ad-wrap{position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;line-height:0}
                   .kk-hero-slider .kk-ad-img{display:block;width:100%!important;height:auto!important;max-width:100%;border-radius:24px;animation:none!important;
