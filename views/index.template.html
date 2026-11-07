@@ -18342,10 +18342,10 @@ body { min-height:100vh !important; }
                      The box has exactly the same shape as the original store image, so the page layout does not change. */
                   .banner-right-image.kk-hero-slider{position:relative;display:block;width:493px;max-width:100%;aspect-ratio:1000/1162}
                   @supports not (aspect-ratio:1/1){.banner-right-image.kk-hero-slider{height:0;padding-bottom:116.2%}}
-                  .kk-hero-slider .kk-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transform:translateX(5%);z-index:1}
-                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;transform:none;z-index:2;transition:opacity .6s ease,transform .6s ease}
-                  /* old slide stays underneath and fades out a little later, so there is never an empty moment */
-                  .kk-hero-slider .kk-slide.is-prev{opacity:0;visibility:hidden;transform:none;transition:opacity .6s ease .35s,visibility 0s linear 1s}
+                  .kk-hero-slider .kk-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;z-index:1}
+                  /* new slide fades in on top of the old one (which stays fully visible underneath) - never an empty moment */
+                  .kk-hero-slider .kk-slide.is-active{opacity:1;visibility:visible;z-index:2;transition:opacity .4s ease}
+                  .kk-hero-slider .kk-slide.is-prev{opacity:1;visibility:visible;z-index:1}
                   .kk-hero-slider .kk-slide>img{display:block;width:100%!important;height:100%!important;max-width:100%;object-fit:cover}
                   .kk-hero-slider .kk-ad-wrap{position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;line-height:0}
                   .kk-hero-slider .kk-ad-img{display:block;width:100%!important;height:auto!important;max-width:100%;border-radius:24px;animation:none!important;
@@ -18367,7 +18367,7 @@ body { min-height:100vh !important; }
                     .kk-hero-slider .kk-hero-dots button{width:11px;height:11px}
                   }
                   @media (prefers-reduced-motion:reduce){
-                    .kk-hero-slider .kk-slide{transform:none}
+                    .kk-hero-slider .kk-slide.is-active{transition:none}
                   }
                 </style>
                 <script id="kk-hero-slider-js">
@@ -18381,10 +18381,19 @@ body { min-height:100vh !important; }
                   var link = document.getElementById("kkHeroWa");
                   var DELAY = 5000;               /* 5 seconds per slide */
                   var MESSAGE = "Hi KhelKhilone! \uD83D\uDC4B\nI found a product online and I'd like you to deliver it to me at the best price.\n\nProduct link: ";
-                  var idx = 0, timer = null, paused = false;
+                  var idx = 0, timer = null, paused = false, prevT = null;
                   /* load + decode the offer image up front so it is ready the moment the slide changes */
                   var pre = new Image(); pre.src = "/img/hero-wa-ad.webp";
                   if (pre.decode) pre.decode().catch(function () {});
+
+                  /* the visual editor can write inline size/position styles onto this box; remove them so the slider always keeps its own layout */
+                  function clean() {
+                    ["transform", "width", "max-width", "height", "min-height", "padding", "margin"].forEach(function (p) {
+                      if (root.style.getPropertyValue(p)) root.style.removeProperty(p);
+                    });
+                  }
+                  clean();
+                  if (window.MutationObserver) new MutationObserver(clean).observe(root, { attributes: true, attributeFilter: ["style"] });
 
                   function show(n) {
                     n = (n + slides.length) % slides.length;
@@ -18405,6 +18414,8 @@ body { min-height:100vh !important; }
                     });
                     if (link) link.tabIndex = n === 1 ? 0 : -1;
                     idx = n;
+                    clearTimeout(prevT);
+                    prevT = setTimeout(function () { slides.forEach(function (s) { s.classList.remove("is-prev"); }); }, 450);
                   }
                   function stop() { if (timer) { clearInterval(timer); timer = null; } }
                   function start() {
@@ -18421,9 +18432,9 @@ body { min-height:100vh !important; }
                   });
 
                   /* pause while the visitor is pointing at / focusing the slider so the button never moves under the cursor */
-                  root.addEventListener("mouseenter", function () { paused = true; stop(); });
-                  root.addEventListener("mouseleave", function () { paused = false; start(); });
-                  root.addEventListener("focusin", function () { paused = true; stop(); });
+                  root.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") { paused = true; stop(); } });
+                  root.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") { paused = false; start(); } });
+                  root.addEventListener("focusin", function (e) { if (e.target.matches && e.target.matches(":focus-visible")) { paused = true; stop(); } });
                   root.addEventListener("focusout", function () { paused = false; start(); });
                   document.addEventListener("visibilitychange", start);
 
